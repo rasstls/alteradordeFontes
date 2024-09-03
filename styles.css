@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+@font-face {
+    font-family: 'Tiktok';
+    src: url('fonts/TiktokPorMochaFrappuccino.woff2') format('woff2'),
+         url('fonts/TiktokporMochaFrappuccino.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#text-output {
+    font-family: 'Tiktok', sans-serif;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.options-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.options-container label {
+    margin-right: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#text-output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    min-height: 150px;
+}
+
