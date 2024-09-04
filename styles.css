@@ -7,10 +7,8 @@ body {
     margin: 0;
     background-color: #004d5cc4; /* Cor de fundo principal */
     background-image: linear-gradient(50deg, #004d7a5a, #004d7a); /* Gradiente com 50 graus */
-    
     position: relative;
 }
-
 
 .container {
     text-align: center;
@@ -20,10 +18,11 @@ body {
     padding: 90px;
     background-color: #5f8be622;
     border-radius: 4px;
-    box-shadow: 0 0 80px rgba(5f8be622);
+    box-shadow: 0 0 80px rgba(95, 139, 230, 0.2);
     overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo exceder a altura */
     box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
 }
+
 /* Estilizando o seletor de fontes */
 .font-selector-container select {
     background-color: #004df609; /* Cor de fundo do seletor */
@@ -50,39 +49,6 @@ body {
 
 /* Estilos básicos para os botões de rádio */
 input[type="radio"] {
-    appearance: radio;
-    -webkit-appearance: radio;
-    -moz-appearance: radio;
-    cursor: pointer;
-}
-
-/* Adicione uma margem ou padding se necessário */
-input[type="radio"] + label {
-    margin-left: 5px;
-    cursor: pointer;
-}
-textarea {
-    width: 100%;
-    height: 50px; /* Altura fixa para o textarea */
-    margin-bottom: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #004d5c10;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: none; /* Remove a capacidade de redimensionar o textarea */
-}
-
-select {
-    width: 100%;
-    padding: 50px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    border: 3px solid #004d5c10;
-    border-radius: 5px;
-}
-/* Estilo para melhorar a visualização em dispositivos móveis */
-input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -92,6 +58,7 @@ input[type="radio"] {
     border-radius: 50%;
     position: relative;
     cursor: pointer;
+    margin-right: 10px; /* Espaço entre o botão de rádio e o rótulo */
 }
 
 input[type="radio"]:checked::before {
@@ -108,10 +75,25 @@ input[type="radio"]:checked::before {
 
 /* Estilo adicional para alinhar o rótulo */
 input[type="radio"] + label {
-    margin-left: 10px;
     line-height: 20px;
     vertical-align: middle;
+    margin-left: 0; /* Remove a margem esquerda padrão */
 }
+
+/* Estilos para o textarea */
+textarea {
+    width: 100%;
+    height: 50px; /* Altura fixa para o textarea */
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #004d5c10;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none; /* Remove a capacidade de redimensionar o textarea */
+}
+
+/* Estilos para o text-output */
 #text-output {
     margin-top: 20px;
     padding: 50px;
