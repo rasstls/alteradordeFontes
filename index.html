@@ -81,7 +81,7 @@
 
         .text-output-container {
             position: relative;
-            margin-top: 5px;
+            margin-top: 35px;
             border: 1px solid #ccc;
             padding: 10px;
             width: 100%;
@@ -157,35 +157,33 @@
         </div>
  
         <!-- Opções de Orientação e Maiúsculas/Minúsculas -->
-        <div class="options-container">
-            <div class="orientation-container">
-                <div class="orientation-selector">
-                    <label>
-                        <input type="radio" name="orientation" value="horizontal" checked>Horizontal
-                    </label>
-                    <label>
-                        <input type="radio" name="orientation" value="vertical">Vertical
-                    </label>
-                </div>
-                <div class="orientation-selector">
-                    <label>
-                        <input type="radio" name="orientation" value="upside-down">De cabeça para baixo
-                    </label>
-                    <label>
-                        <input type="radio" name="orientation" value="bold">Negrito
-                    </label>
-                </div>
-            </div>
-            <div class="case-selector">
-                <label>
-                    <input type="radio" name="text-case" value="uppercase">MAIÚSCULO
-                </label>
-                <label>
-                    <input type="radio" name="text-case" value="lowercase">Minúsculo
-                </label>
-            </div>
-        </div>
-        
+        <div class="orientation-container">
+    <div class="orientation-selector">
+        <label>
+            <input type="radio" name="orientation" value="horizontal" checked>Horizontal
+        </label>
+        <label>
+            <input type="radio" name="orientation" value="vertical">Vertical
+        </label>
+	 <label>
+            <input type="radio" name="text-case" value="lowercase">Minúsculo
+        </label>
+        <label>
+            <input type="radio" name="text-case" value="uppercase">MAIÚSCULO
+        </label>
+      
+    </div>
+    <div class="orientation-selector">
+        <label>
+            <input type="radio" name="orientation" value="upside-down">De cabeça para baixo
+        </label>
+        <label>
+            <input type="radio" name="orientation" value="bold">Negrito
+        </label>
+	
+    </div>
+</div>
+
         <!-- Área de Exibição com Botão de Copiar -->
         <div class="text-output-container">
             <button class="copy-button" id="copy-button">Copiar</button>
