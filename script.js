@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const caseSelector = document.querySelectorAll('input[name="text-case"]');
     const copyButton = document.getElementById("copy-button");
     const fontSearch = document.getElementById("font-search"); // Novo campo de busca
-
+    const charCount = document.getElementById("char-count"); // Contador de caracteres
 
     function updateText() {
         const selectedFont = fontSelector.value;
@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let selectedOrientation = 'horizontal';
         let selectedCase = '';
         let isBold = false;
+
+        // Atualiza o contador de caracteres
+        charCount.textContent = `${text.length} caracteres digitados`;
 
         // Verifica qual opção de orientação está selecionada
         orientationSelector.forEach((radio) => {
