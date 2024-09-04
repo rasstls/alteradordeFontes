@@ -47,6 +47,7 @@ body {
     background-color: #004d5c58; /* Cor de fundo da opção selecionada */
     color: #333; /* Cor do texto da opção selecionada */
 }
+
 /* Estilos básicos para os botões de rádio */
 input[type="radio"] {
     appearance: radio;
@@ -77,10 +78,40 @@ select {
     padding: 50px;
     margin-bottom: 10px;
     font-size: 16px;
-    border: 1px solid #004d5c10;
-    border-radius: 4px;
+    border: 3px solid #004d5c10;
+    border-radius: 5px;
+}
+/* Estilo para melhorar a visualização em dispositivos móveis */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
 }
 
+input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #004d5cc4;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo adicional para alinhar o rótulo */
+input[type="radio"] + label {
+    margin-left: 10px;
+    line-height: 20px;
+    vertical-align: middle;
+}
 #text-output {
     margin-top: 20px;
     padding: 50px;
