@@ -1,124 +1,196 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 110vh;
-    margin: 0;
-    background-color: #004d5cc4; /* Cor de fundo principal */
-    background-image: linear-gradient(50deg, #004d7a5a, #004d7a); /* Gradiente com 50 graus */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterador de Fontes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9ffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5rem; /* Tamanho flexível para se ajustar às telas menores */
+        }
+
+        #text-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .font-label {
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 3rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: 1px solid #004d5c10;
+            margin-bottom: 10px;
+        }
+
+        
+        .orientation-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Permite que os botões se ajustem em telas menores */
+            margin-bottom: -61px;
+        }
+
+        .orientation-selector,
+        .case-selector,
+        .style-selector {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .orientation-selector label,
+        .case-selector label,
+        .style-selector label {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .text-output-container {
+            position: relative;
+            margin-top: 35px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            height: 230px;
+            overflow-y: auto;
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+
+        .copy-button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 8px 12px;
+            background-color: #81f08fff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .copy-button:hover {
+            background-color: #28e640ff;
+        }
+
+        #char-count {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        #text-output {
+            padding-right: 80px;
+            font-size: 1rem; /* Texto flexível para legibilidade */
+        }
+    </style>
+</head>
+<body>
     
-    position: relative;
-}
+    <div class="rectangle"></div>
+    <div class="container">
+        <h1>Alterador de Fontes</h1>
+        <textarea id="text-input" placeholder="Digite seu texto aqui..."></textarea>
+       
+        <!-- Texto de título para o seletor de fontes -->
+        <div class="font-selector-container">
+            <input type="text" id="font-search" placeholder="Pesquisar fonte..." onkeyup="filterFonts()">
+            <select id="font-selector" size="5">
+                <option value="Arial">Arial</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="Bookman">Bookman</option>
+                <option value="Brush Script MT">Brush Script MT</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Impact">Impact</option>
+                <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                <option value="Palatino Linotype">Palatino Linotype</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Teko">Teko</option>
+            </select>
+        </div>
+ 
+        <!-- Opções de Orientação e Maiúsculas/Minúsculas -->
+        <div class="orientation-container">
+    <div class="orientation-selector">
+        <label>
+            <input type="radio" name="orientation" value="horizontal" checked>Horizontal
+        </label>
+        <label>
+            <input type="radio" name="orientation" value="vertical">Vertical
+        </label>
+	 <label>
+            <input type="radio" name="text-case" value="lowercase">Minúsculo
+        </label>
+        <label>
+            <input type="radio" name="text-case" value="uppercase">MAIÚSCULO
+        </label>
+      
+    </div>
+    <div class="orientation-selector">
+        <label>
+            <input type="radio" name="orientation" value="upside-down">De cabeça para baixo
+        </label>
+        <label>
+            <input type="radio" name="orientation" value="bold">Negrito
+        </label>
+	
+    </div>
+</div>
 
-
-.container {
-    text-align: center;
-    width: 500px; /* Define a largura fixa */
-    height: 710px; /* Define a altura fixa */
-    margin: 10px;
-    padding: 90px;
-    background-color: #5f8be622;
-    border-radius: 4px;
-    box-shadow: 0 0 80px rgba(5f8be622);
-    overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo exceder a altura */
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
-}
-/* Estilizando o seletor de fontes */
-.font-selector-container select {
-    background-color: #004df609; /* Cor de fundo do seletor */
-    color: #333; /* Cor do texto das opções */
-    border: 2px solid #004df61b; /* Cor da borda */
-    border-radius: 5px; /* Borda arredondada */
-    padding: 5px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho da fonte */
-    width: 100%; /* Largura total */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    outline: none; /* Remove o contorno padrão ao focar */
-}
-
-.font-selector-container select option {
-    background-color: #004d5c00; /* Cor de fundo das opções */
-    color: #333; /* Cor do texto das opções */
-}
-
-/* Estilizando a seleção de uma opção */
-.font-selector-container select option:checked {
-    background-color: #004d5c58; /* Cor de fundo da opção selecionada */
-    color: #333; /* Cor do texto da opção selecionada */
-}
-
-/* Estilos básicos para os botões de rádio */
-input[type="radio"] {
-    appearance: radio;
-    -webkit-appearance: radio;
-    -moz-appearance: radio;
-    cursor: pointer;
-}
-
-/* Adicione uma margem ou padding se necessário */
-input[type="radio"] + label {
-    margin-left: 5px;
-    cursor: pointer;
-}
-textarea {
-    width: 100%;
-    height: 50px; /* Altura fixa para o textarea */
-    margin-bottom: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #004d5c10;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: none; /* Remove a capacidade de redimensionar o textarea */
-}
-
-select {
-    width: 100%;
-    padding: 50px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    border: 3px solid #004d5c10;
-    border-radius: 5px;
-}
-/* Estilo para melhorar a visualização em dispositivos móveis */
-input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-}
-
-input[type="radio"]:checked::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background-color: #004d5cc4;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Estilo adicional para alinhar o rótulo */
-input[type="radio"] + label {
-    margin-left: 10px;
-    line-height: 20px;
-    vertical-align: middle;
-}
-#text-output {
-    margin-top: 20px;
-    padding: 50px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f2f2f2;
-    min-height: 150px; /* Define a altura mínima do elemento */
-    max-height: calc(100% - 40px); /* Ajusta a altura máxima para o container */
-    overflow-y: auto; /* Adiciona barra de rolagem vertical */
-}
+        <!-- Área de Exibição com Botão de Copiar -->
+        <div class="text-output-container">
+            <button class="copy-button" id="copy-button">Copiar</button>
+            <span id="char-count">0 caracteres digitados</span> <!-- Contador de caracteres -->
+            <div id="text-output"></div>
+        </div>
+    </div>
+   <script src="script.js"></script>
+</body>
+</html>
