@@ -8,27 +8,22 @@ body {
     background-color: #ffffff;
 }
 
-@font-face {
-    font-family: 'Tiktok';
-    src: url('fonts/TiktokPorMochaFrappuccino.woff2') format('woff2'),
-         url('fonts/TiktokporMochaFrappuccino.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-}
-
 #text-output {
     font-family: 'Tiktok', sans-serif;
 }
 
 .container {
     text-align: center;
-    max-width: 600px;
+    width: 500px; /* Define a largura fixa */
+    height: 600px; /* Define a altura fixa */
     margin: 10px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo exceder a altura */
 }
+
 .options-container {
     display: flex;
     gap: 20px;
@@ -66,5 +61,6 @@ select {
     border-radius: 4px;
     background-color: #f2f2f2;
     min-height: 150px;
+    max-height: calc(100% - 40px); /* Para se ajustar ao container */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
 }
-
