@@ -81,17 +81,17 @@
 
         .text-output-container {
             position: relative;
-            margin-top: 35px;
+            margin-top: 40px;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 20px;
             width: 100%;
             box-sizing: border-box;
             overflow: hidden;
             overflow-wrap: break-word;
-            height: 230px;
+            height: 320px;
             overflow-y: auto;
-            border-radius: 4px;
-            background-color: #ffffff;
+            border-radius: 10px;
+            
         }
 
         .copy-button {
@@ -99,7 +99,7 @@
             right: 10px;
             top: 10px;
             padding: 8px 12px;
-            background-color: #81f08fff;
+            background-color: #004d5cc4;
             color: white;
             border: none;
             border-radius: 4px;
@@ -126,7 +126,7 @@
     </style>
 </head>
 <body>
-    
+   
     <div class="rectangle"></div>
     <div class="container">
         <h1>Alterador de Fontes</h1>
@@ -165,14 +165,8 @@
         <label>
             <input type="radio" name="orientation" value="vertical">Vertical
         </label>
-	 <label>
-            <input type="radio" name="text-case" value="lowercase">Minúsculo
-        </label>
-        <label>
-            <input type="radio" name="text-case" value="uppercase">MAIÚSCULO
-        </label>
-      
     </div>
+
     <div class="orientation-selector">
         <label>
             <input type="radio" name="orientation" value="upside-down">De cabeça para baixo
@@ -180,7 +174,15 @@
         <label>
             <input type="radio" name="orientation" value="bold">Negrito
         </label>
-	
+    </div>
+    
+    <div class="case-selector">
+        <label>
+            <input type="radio" name="text-case" value="lowercase">Minúsculo
+        </label>
+        <label>
+            <input type="radio" name="text-case" value="uppercase">MAIÚSCULO
+        </label>
     </div>
 </div>
 
